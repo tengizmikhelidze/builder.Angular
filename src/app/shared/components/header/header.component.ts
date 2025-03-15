@@ -46,9 +46,10 @@ export class HeaderComponent {
     }
   }
 
-  navigate(lang: 'en' | 'ka') {
-    const urlSegment = this.router.url.slice(3);
-    this.router.navigateByUrl(lang+urlSegment)
+  navigate(lang: 'en' | 'ka' | 'same', navigateTo?: string) {
+    const urlLang = this.router.url.slice(0, 3);
+    const urlSegment = navigateTo ?? this.router.url.slice(3);
+    this.router.navigateByUrl((navigateTo ? urlLang : lang)+urlSegment)
       .then(()=> {
         this.eng.set(this.engChooser())
       })
