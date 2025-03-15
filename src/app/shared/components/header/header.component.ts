@@ -24,10 +24,10 @@ export class HeaderComponent {
   engChooser() {
     switch (this.isEng) {
       case true: {
-        return 'Eng'
+        return 'Geo'
       }
       case  false: {
-        return "Geo"
+        return "Eng"
       }
     }
   }
@@ -48,7 +48,9 @@ export class HeaderComponent {
 
   navigate(lang: 'en' | 'ka') {
     const urlSegment = this.router.url.slice(3);
-    this.router.navigateByUrl(lang+urlSegment);
-    this.eng.set(this.engChooser())
+    this.router.navigateByUrl(lang+urlSegment)
+      .then(()=> {
+        this.eng.set(this.engChooser())
+      })
   }
 }
