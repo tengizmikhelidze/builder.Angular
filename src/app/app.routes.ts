@@ -1,4 +1,4 @@
-import { Routes } from '@angular/router';
+import {Routes} from '@angular/router';
 
 const featureRoutes: Routes = [
   {
@@ -14,24 +14,20 @@ const featureRoutes: Routes = [
     redirectTo: 'home',
     pathMatch: 'full'
   },
-  { path: '**', redirectTo: 'home' }
+  {path: '**', redirectTo: 'home'}
 
 ]
 
 export const routes: Routes = [
   {
-    path: 'ka',
-    children: featureRoutes
-  },
-  {
-    path: 'en',
+    path: ':lang',
     children: featureRoutes
   },
   {
     path: '',
-    redirectTo: '/ka',
+    redirectTo: 'ka',
     pathMatch: 'full'
   },
-  { path: '**', redirectTo: '/ka' }
+  {path: '**', redirectTo: 'ka'}
 
 ];

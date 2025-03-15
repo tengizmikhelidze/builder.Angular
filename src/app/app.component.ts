@@ -1,6 +1,8 @@
-import {Component, inject} from '@angular/core';
-import {RouterOutlet} from '@angular/router';
+import {Component, inject, OnInit} from '@angular/core';
+import {ActivatedRoute, NavigationEnd, Router, RouterOutlet} from '@angular/router';
 import {ThemeService} from './shared/services';
+import {TranslateService} from '@ngx-translate/core';
+import {filter, map, Observable, of, switchMap} from 'rxjs';
 
 @Component({
   selector: 'app-root',
@@ -10,10 +12,40 @@ import {ThemeService} from './shared/services';
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss'
 })
-export class AppComponent {
+export class AppComponent implements OnInit {
   private themeService = inject(ThemeService);
+  private route = inject(ActivatedRoute)
+  private router = inject(Router)
+  private translate = inject(TranslateService)
 
   constructor() {
+    this.translate.addLangs(['en', "ka"]);
     this.themeService.setInitialTheme();
+  }
+
+  ngOnInit() {
+    this.selectLanguage()
+  }
+
+  selectLanguage() {
+    this.router.events.pipe(
+      filter(event => event instanceof NavigationEnd)
+    )
+      .pipe(
+        map((): Observable<{ lang: 'ka' | 'us' }>=> <Observable<{ lang: 'ka' | 'us' }>>this.route.firstChild?.params ?? of({lang: 'ka'})),
+        switchMap((params)=> params)
+      )
+      .subscribe({
+      next: (params) => {
+        const lang = params.lang;
+        // თუ ენა არსებობს და ხელმისაწვდომია, გამოვიყენოთ
+        if (lang && this.translate.getLangs().includes(lang)) {
+          this.translate.use(lang);
+        } else {
+          // თუ არცერთი არ ემთხვევა, დატვირთეთ ნაგულისხმევი ენა
+          this.translate.use(this.translate.getDefaultLang());
+        }
+      }
+    });
   }
 }
