@@ -1,0 +1,52 @@
+:host ::ng-deep .home-carousel {
+  .p-ripple.p-button {
+    width: auto;
+    height: auto;
+  }
+
+  .carousel-prev-icon, .carousel-next-icon {
+    height: 2rem;
+    width: 3rem;
+    color: var(--color-icon-initial);
+  }
+}
+
+.main-page {
+  width: 100%;
+  min-height: 100vh;
+
+  .header {
+    height: 70px;
+  }
+
+  main {
+    width: 100%;
+    height: calc(100vh - 70px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+}
+
+.home-carousel {
+  width: 100%;
+}
+
+.carousel--item {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  img {
+    aspect-ratio: 920 / 820;
+    object-fit: cover;
+    max-height: 50vh;
+    width: 80%;
+    border-radius: 4px;
+    cursor: pointer;
+    position: relative;
+  }
+}
+
+

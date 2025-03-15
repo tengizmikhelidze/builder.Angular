@@ -35,8 +35,7 @@
             "styles": [
               "src/styles/fonts/fonts.scss",
               "src/styles/theming/theme.scss",
-              "src/styles/reset/reset.scss",
-              "src/styles.scss"
+              "src/styles/reset/reset.scss"
             ],
             "scripts": []
           },

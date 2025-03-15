@@ -19,6 +19,7 @@ export class HeaderComponent {
   eng = signal<string>(this.engChooser());
 
   headerBackground: string = 'transparent';
+  headerBorder: string = '1px solid transparent';
   headerVisible: boolean = true;
   private lastScrollTop: number = 0;
   private readonly scrollThreshold: number = 100;
@@ -29,6 +30,9 @@ export class HeaderComponent {
     this.headerBackground = currentScroll > this.scrollThreshold
       ? 'var(--header-background)'
       : 'transparent';
+    this.headerBorder = currentScroll > this.scrollThreshold
+      ? '1px solid rgba(255, 255, 255, 0.1)'
+      : '1px solid transparent';
     // Hide header if scrolling down past threshold; show otherwise.
     this.headerVisible = !(currentScroll > this.lastScrollTop && currentScroll > this.scrollThreshold);
     this.lastScrollTop = Math.max(0, currentScroll);

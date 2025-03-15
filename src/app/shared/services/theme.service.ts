@@ -1,6 +1,6 @@
 import {Injectable, signal} from '@angular/core';
-import {ThemeType} from '../types';
-import {LocalstorageKeys} from '../localstorage';
+import {ThemeType} from '../../core/types';
+import {LocalstorageKeys} from '../../core/localstorage';
 
 @Injectable({
   providedIn: 'root'

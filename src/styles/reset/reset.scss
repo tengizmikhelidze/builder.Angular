@@ -14,6 +14,8 @@ html, body {
 html {
   font-size: 16px; // sets a consistent base font size
   line-height: 1.5;
+  -ms-overflow-style: none;  /* IE and Edge */
+  scrollbar-width: none;     /* Firefox */
 }
 
 body {
@@ -35,4 +37,12 @@ button {
 a {
   text-decoration: none;
   color: var(--color-text-initial)
+}
+
+::-webkit-scrollbar {
+  display: none;
+}
+
+:root {
+  --page-padding : 3.75rem
 }
