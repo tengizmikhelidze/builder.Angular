@@ -23,18 +23,33 @@ nav ul {
 }
 
 nav ul li {
+  padding: 10px 0;
+  height: 100%;
   color: var(--color-text-initial);
   cursor: pointer;
-
   font-family: GeorgianMtavruli, Roboto, sans-serif;
-}
+  border-bottom: 5px solid transparent;
+  transition: 0.05s;
 
-nav ul li:first-child {
-  margin-right: auto;
+  display: flex;
+  align-items: center;
+  justify-content: end;
 
-  img {
-    height: auto;
-    width: 190px;
+  &:first-child {
+    justify-self: start;
+    margin-right: auto;
+
+    img {
+      height: auto;
+      width: 190px;
+    }
   }
+
+  &:hover:not(:first-child) {
+    border-bottom: 10px solid #ffffff;
+  }
+
 }
+
+
 

@@ -1,6 +1,6 @@
 import { Routes } from '@angular/router';
 
-export const routes: Routes = [
+const featureRoutes: Routes = [
   {
     path: 'home',
     loadChildren: () =>
@@ -8,11 +8,30 @@ export const routes: Routes = [
         (m) => m.routes
       )
   },
+
   {
     path: '',
     redirectTo: 'home',
     pathMatch: 'full'
   },
   { path: '**', redirectTo: 'home' }
+
+]
+
+export const routes: Routes = [
+  {
+    path: 'ka',
+    children: featureRoutes
+  },
+  {
+    path: 'en',
+    children: featureRoutes
+  },
+  {
+    path: '',
+    redirectTo: '/ka',
+    pathMatch: 'full'
+  },
+  { path: '**', redirectTo: '/ka' }
 
 ];
