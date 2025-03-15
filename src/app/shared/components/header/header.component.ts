@@ -1,57 +1,59 @@
-import {Component, inject, signal} from '@angular/core';
-import {NgOptimizedImage} from '@angular/common';
-import {TranslatePipe} from '@ngx-translate/core';
-import {Router} from '@angular/router';
+import { Component, HostListener, inject, signal } from '@angular/core';
+import {NgOptimizedImage, NgStyle} from '@angular/common';
+import { TranslatePipe } from '@ngx-translate/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-header',
   imports: [
     NgOptimizedImage,
-    TranslatePipe
+    TranslatePipe,
+    NgStyle
   ],
   templateUrl: './header.component.html',
-  styleUrl: './header.component.scss'
+  styleUrls: ['./header.component.scss']
 })
 export class HeaderComponent {
-  private router = inject(Router)
+  private router = inject(Router);
 
-  eng = signal<string>(this.engChooser())
+  eng = signal<string>(this.engChooser());
 
-  get isEng() {
-    return this.router.url.includes("/en/")
+  headerBackground: string = 'transparent';
+  headerVisible: boolean = true;
+  private lastScrollTop: number = 0;
+  private readonly scrollThreshold: number = 100;
+
+  @HostListener('window:scroll', [])
+  onWindowScroll(): void {
+    const currentScroll = window.scrollY || document.documentElement.scrollTop;
+    this.headerBackground = currentScroll > this.scrollThreshold
+      ? 'var(--header-background)'
+      : 'transparent';
+    // Hide header if scrolling down past threshold; show otherwise.
+    this.headerVisible = !(currentScroll > this.lastScrollTop && currentScroll > this.scrollThreshold);
+    this.lastScrollTop = Math.max(0, currentScroll);
   }
 
-  engChooser() {
-    switch (this.isEng) {
-      case true: {
-        return 'Geo'
-      }
-      case  false: {
-        return "Eng"
-      }
-    }
+  get isEng(): boolean {
+    return this.router.url.startsWith('/en');
   }
 
-  changeLanguage() {
-    switch (this.isEng) {
-      case true: {
-        this.navigate("ka")
-        break;
-      }
-
-      case false: {
-       this.navigate("en");
-        break;
-      }
-    }
+  engChooser(): string {
+    return this.isEng ? 'Geo' : 'Eng';
   }
 
-  navigate(lang: 'en' | 'ka' | 'same', navigateTo?: string) {
-    const urlLang = this.router.url.slice(0, 3);
-    const urlSegment = navigateTo ?? this.router.url.slice(3);
-    this.router.navigateByUrl((navigateTo ? urlLang : lang)+urlSegment)
-      .then(()=> {
-        this.eng.set(this.engChooser())
-      })
+  changeLanguage(): void {
+    const targetLang: 'en' | 'ka' = this.isEng ? 'ka' : 'en';
+    this.navigate(targetLang);
+  }
+
+  navigate(lang: 'en' | 'ka' | 'same', navigateTo?: string): void {
+    const currentUrl = this.router.url;
+    const prefix = lang === 'same'
+      ? (currentUrl.startsWith('/en') ? 'en' : 'ka')
+      : lang;
+    const urlSegment = navigateTo ?? currentUrl.substring(3);
+    this.router.navigateByUrl(`/${prefix}${urlSegment}`)
+      .then(() => this.eng.set(this.engChooser()));
   }
 }
