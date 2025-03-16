@@ -2,6 +2,6 @@ import {Environment} from './environment.interface';
 
 export const environment: Environment = {
   environment: 'localhost',
-  apiUrl: 'http://localhost:3000/api',
-  projectsUrl: 'http://localhost:3000/api/projects'
+  apiUrl: 'https://10ggo.ge/api',
+  projectsUrl: 'https://10ggo.ge/api/projects'
 };
