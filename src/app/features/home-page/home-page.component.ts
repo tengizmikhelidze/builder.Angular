@@ -12,11 +12,12 @@ import {forkJoin, Observable, take, tap} from 'rxjs';
     Carousel
   ],
   templateUrl: './home-page.component.html',
-  styleUrl: './home-page.component.scss'
+  styleUrls: ['./home-page.component.scss']
 })
 export class HomePageComponent {
-  private readonly projectsService = inject(ProjectsService)
-  projects = signal<Project[]>([])
+  private readonly projectsService = inject(ProjectsService);
+  projects = signal<Project[]>([]);
+  animate: boolean = true;
 
   constructor() {
     this.getInitialData();
@@ -25,13 +26,19 @@ export class HomePageComponent {
   getInitialData() {
     forkJoin([this.getAllProjects()])
       .pipe(take(1))
-      .subscribe()
+      .subscribe();
   }
 
-  getAllProjects (): Observable<Project[]> {
-    return this.projectsService.getAll()
-      .pipe(
-        tap((projects)=> this.projects.set(projects))
-      )
+  getAllProjects(): Observable<Project[]> {
+    return this.projectsService.getAll().pipe(
+      tap((projects) => this.projects.set(projects))
+    );
+  }
+
+  onPageChange(): void {
+    this.animate = false;
+    setTimeout(() => {
+      this.animate = true;
+    }, 0);
   }
 }
