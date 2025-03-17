@@ -37,6 +37,11 @@
               "src/styles/theming/theme.scss",
               "src/styles/reset/reset.scss"
             ],
+            "stylePreprocessorOptions": {
+              "includePaths": [
+                "src/styles/mixins"
+              ]
+            },
             "scripts": []
           },
           "configurations": {

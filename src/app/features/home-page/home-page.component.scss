@@ -1,3 +1,5 @@
+@use "font.mixins" as font;
+
 :host ::ng-deep .home-carousel {
   .p-ripple.p-button {
     width: auto;

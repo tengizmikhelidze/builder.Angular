@@ -1,3 +1,5 @@
+@use "font.mixins" as font;
+
 header {
   position: fixed;
   top: 0;
@@ -42,6 +44,8 @@ nav ul li {
   display: flex;
   align-items: center;
   justify-content: end;
+
+  @include font.fluid-font();
 
   &:first-child {
     justify-self: start;
