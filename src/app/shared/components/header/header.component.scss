@@ -31,6 +31,7 @@ nav ul {
 }
 
 nav ul li {
+  position: relative;
   padding: 10px 0;
   height: 100%;
   color: var(--color-text-initial);
@@ -52,8 +53,19 @@ nav ul li {
     }
   }
 
-  &:hover:not(:first-child) {
-    border-bottom: 10px solid #ffffff;
+  &::after {
+    content: "";
+    position: absolute;
+    bottom: -3px; // Adjust depending on your layout
+    left: 0;
+    width: 0;      // Start with no width
+    height: 3px;
+    background-color: #ffffff;
+    transition: width 0.3s; // Animate the width over 1 second
+  }
+
+  &:hover:not(:first-child)::after {
+    width: 100%;
   }
 
   a {
