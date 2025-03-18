@@ -4,6 +4,7 @@ import {ContactPageFirstSectionComponent} from './contact-page-first-section/con
 import {Button} from "primeng/button";
 import {SpeedDial} from "primeng/speeddial";
 import {NgClass, NgStyle} from '@angular/common';
+import {ContactPageSecondSectionComponent} from './contact-page-second-section/contact-page-second-section.component';
 
 @Component({
   selector: 'app-contact-page',
@@ -13,7 +14,8 @@ import {NgClass, NgStyle} from '@angular/common';
     Button,
     SpeedDial,
     NgClass,
-    NgStyle
+    NgStyle,
+    ContactPageSecondSectionComponent
   ],
   templateUrl: './contact-page.component.html',
   styleUrls: ['./contact-page.component.scss', './contact-page.component.responsive.scss']

@@ -13,6 +13,7 @@ $theme-map: (
     --header-burger-icon-lines--closed: $header-burger-icon-lines--closed--dark,
     --color-text-initial: $color-text-initial--dark,
     --color-text-initial--20: $color-text-initial--20--dark,
+    --color-text-secondary: $color-text-secondary--dark,
     --color-icon-initial: $color-icon-initial--dark
   ),
   "light": (
@@ -25,6 +26,7 @@ $theme-map: (
     --header-burger-icon-lines--closed: $header-burger-icon-lines--closed--light,
     --color-text-initial: $color-text-initial--light,
     --color-text-initial--20: $color-text-initial--20--light,
+    --color-text-secondary: $color-text-secondary--light,
     --color-icon-initial: $color-icon-initial--light
   )
 );

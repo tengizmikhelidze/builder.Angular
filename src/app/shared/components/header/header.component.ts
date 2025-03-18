@@ -1,4 +1,4 @@
-import {Component, HostListener, inject, model, signal} from '@angular/core';
+import {Component, HostListener, inject, model, OnInit, signal} from '@angular/core';
 import {NgOptimizedImage, NgStyle} from '@angular/common';
 import {TranslatePipe} from '@ngx-translate/core';
 import {Router} from '@angular/router';
@@ -15,16 +15,21 @@ import {BurgerMenuComponent} from '../burger-menu/burger-menu.component';
   templateUrl: './header.component.html',
   styleUrls: ['./header.component.scss']
 })
-export class HeaderComponent {
+export class HeaderComponent implements OnInit{
   private router = inject(Router);
 
   eng = signal<string>(this.engChooser());
 
   headerBackground: string = 'transparent';
-  headerBorder = model<string>('1px solid transparent');
+  headerBorderInitial = model<string>('1px solid transparent');
+  headerBorder = model<string>(this.headerBorderInitial());
   headerVisible: boolean = true;
   private lastScrollTop: number = 0;
   private readonly scrollThreshold: number = 100;
+
+  ngOnInit() {
+    this.headerBorder.set(this.headerBorderInitial())
+  }
 
   @HostListener('window:scroll', [])
   onWindowScroll(): void {
@@ -34,7 +39,7 @@ export class HeaderComponent {
       : 'transparent';
     this.headerBorder.set(currentScroll > this.scrollThreshold
       ? '1px solid rgba(255, 255, 255, 0.1)'
-      : '1px solid transparent');
+      : this.headerBorderInitial());
 
     this.headerVisible = !(currentScroll > this.lastScrollTop && currentScroll > this.scrollThreshold);
     this.lastScrollTop = Math.max(0, currentScroll);
