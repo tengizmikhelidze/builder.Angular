@@ -1,0 +1,25 @@
+<div class="burger-menu">
+  <!-- Burger Icon -->
+  <div class="burger-icon" (click)="toggleMenu()">
+    <div class="line" [class.open]="menuOpen()"></div>
+    <div class="line" [class.open]="menuOpen()"></div>
+    <div class="line" [class.open]="menuOpen()"></div>
+  </div>
+
+  <!-- Full-page Menu Overlay -->
+  <div class="menu-overlay" [class.active]="menuOpen()">
+    <nav class="menu-nav">
+      <ul>
+        <li>
+          <a  (click)="navigate('same', '/projects')">{{ "პროექტები" | translate  }}</a>
+        </li>
+        <li>
+          <a   (click)="navigate('same', '/about-us')">{{ "ჩვენ შესახებ" | translate  }}</a>
+        </li>
+        <li>
+          <a  (click)="navigate('same', '/contact')">{{ "კონტაქტი" | translate }}</a>
+        </li>
+      </ul>
+    </nav>
+  </div>
+</div>

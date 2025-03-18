@@ -15,12 +15,9 @@
       <li>
         <a  (click)="navigate('same', '/contact')">{{ "კონტაქტი" | translate }}</a>
       </li>
-      <li>
-        <a  (click)="changeLanguage()">{{ eng() }}</a>
-      </li>
       <li id="burger-menu-icon">
         <a>
-          <i class="pi pi-bars"></i>
+          <app-burger-menu></app-burger-menu>
         </a>
       </li>
     </ul>

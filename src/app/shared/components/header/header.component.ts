@@ -1,14 +1,16 @@
-import { Component, HostListener, inject, signal } from '@angular/core';
+import {Component, HostListener, inject, signal} from '@angular/core';
 import {NgOptimizedImage, NgStyle} from '@angular/common';
-import { TranslatePipe } from '@ngx-translate/core';
-import { Router } from '@angular/router';
+import {TranslatePipe} from '@ngx-translate/core';
+import {Router} from '@angular/router';
+import {BurgerMenuComponent} from '../burger-menu/burger-menu.component';
 
 @Component({
   selector: 'app-header',
   imports: [
     NgOptimizedImage,
     TranslatePipe,
-    NgStyle
+    NgStyle,
+    BurgerMenuComponent
   ],
   templateUrl: './header.component.html',
   styleUrls: ['./header.component.scss']
