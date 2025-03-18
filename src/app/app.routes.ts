@@ -8,14 +8,22 @@ const featureRoutes: Routes = [
         (m) => m.routes
       )
   },
-
+  {
+    path: 'contact',
+    loadChildren: () =>
+      import('./features/contact-page/contact-page.routes').then(
+        (m) => m.routes
+      )
+  },
   {
     path: '',
     redirectTo: 'home',
     pathMatch: 'full'
   },
-  {path: '**', redirectTo: 'home'}
-
+  {
+    path: '**',
+    redirectTo: 'home'
+  }
 ]
 
 export const routes: Routes = [
