@@ -32,6 +32,7 @@
 
   .speeddial-wrapper {
     right: var(--page-padding--md);
+    font-size: 0.7rem;
   }
 }
 
@@ -45,5 +46,12 @@
     &--subtitle {
       font-size: 2.5rem;
     }
+  }
+}
+
+@include responsive.respond-to(sm) {
+  .speeddial-wrapper {
+    right: var(--page-padding--md);
+    font-size: 0.6rem;
   }
 }
