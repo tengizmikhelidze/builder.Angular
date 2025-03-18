@@ -12,7 +12,7 @@ import {forkJoin, Observable, take, tap} from 'rxjs';
     Carousel
   ],
   templateUrl: './home-page.component.html',
-  styleUrls: ['./home-page.component.scss']
+  styleUrls: ['./home-page.component.scss', './home-page.component.responsive.scss']
 })
 export class HomePageComponent {
   private readonly projectsService = inject(ProjectsService);
