@@ -42,7 +42,10 @@ section {
   }
 
   &--bg {
-    background: url("/assets/images/bg-1.png");
+    background-image: url("/assets/images/bg-1.png");
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: cover;
     z-index: 0;
     position: absolute;
     top: 0;
@@ -75,12 +78,12 @@ section {
   &--subtitle {
     white-space: nowrap;
     position: absolute;
-    font-size: 7.5rem;
+    font-size: 6.5rem;
     font-weight: 400;
     line-height: 1.15;
     color: transparent;
     -webkit-text-stroke: 1px var(--color-text-initial--20);
-    bottom: 18%;
+    bottom: 25%;
     left: 0;
   }
 
@@ -91,8 +94,8 @@ section {
 
 .speeddial-wrapper {
   position: absolute;
-  right: 0;
   bottom: 10%;
+  right: var(--page-padding);
   display: flex;
   justify-content: end;
   flex-direction: column;

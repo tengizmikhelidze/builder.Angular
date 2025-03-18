@@ -12,7 +12,7 @@ import {NgClass, NgStyle} from '@angular/common';
     NgStyle
   ],
   templateUrl: './contact-page-first-section.component.html',
-  styleUrl: './contact-page-first-section.component.scss'
+  styleUrls: ['./contact-page-first-section.component.scss', './contact-page-first-section.component.responsive.scss']
 })
 export class ContactPageFirstSectionComponent {
   messageContacts = [
