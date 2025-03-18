@@ -12,6 +12,8 @@
   display: grid;
   grid-template-columns: 1fr 1fr;
   grid-column-gap: 100px;
+  grid-template-areas:
+    "iframe-area info-area";
   align-items: start;
   min-width: 300px;
   min-height: 500px;
