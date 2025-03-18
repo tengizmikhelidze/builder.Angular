@@ -5,4 +5,27 @@
   <main>
     <app-contact-page-first-section></app-contact-page-first-section>
   </main>
+  <section class="speeddial-wrapper">
+    <p-speeddial [model]="dialContacts" direction="left">
+      <ng-template #button let-toggleCallback="toggleCallback">
+        <p-button id="dial-icon" icon="pi pi-phone" severity="secondary" (click)="toggleCallback($event)"></p-button>
+      </ng-template>
+      <ng-template #item let-item>
+        <div class="contact-speeddial-item">
+          <a [href]="'tel:'+item.number">{{ item.number }}</a>
+        </div>
+      </ng-template>
+    </p-speeddial>
+
+    <p-speeddial [model]="messageContacts" direction="left">
+      <ng-template #button let-toggleCallback="toggleCallback">
+        <p-button id="message-icon" icon="pi pi-send" severity="secondary" (click)="toggleCallback($event)"></p-button>
+      </ng-template>
+      <ng-template #item let-item>
+        <div class="social-speeddial-item" [ngStyle]="{background: item.background}">
+          <a [href]="item.href"><i class="pi" [ngClass]="item.icon" style="font-size: 2rem"></i></a>
+        </div>
+      </ng-template>
+    </p-speeddial>
+  </section>
 </div>
