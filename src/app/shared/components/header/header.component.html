@@ -1,25 +1,33 @@
-<header [ngStyle]="{'background-color': headerBackground, 'border-bottom': headerBorder()}" [class.header-hidden]="!headerVisible" >
+<header [ngStyle]="{'background-color': headerBackground, 'border-bottom': headerBorder()}" [class.header-hidden]="!headerVisible">
   <nav>
     <ul>
       <li>
-        <a (click)="navigate('same', '/home')">
+        <a [href]="getHref('/home')">
           <img ngSrc="assets/images/logo.png" width="900" height="138" alt="Logo" priority>
         </a>
       </li>
       <li>
-        <a  (click)="navigate('same', '/projects')">{{ "პროექტები" | translate  }}</a>
+        <a [href]="getHref('/projects')">
+          {{ "პროექტები" | translate }}
+        </a>
       </li>
       <li>
-        <a   (click)="navigate('same', '/about-us')">{{ "ჩვენ შესახებ" | translate  }}</a>
+        <a [href]="getHref('/about-us')">
+          {{ "ჩვენ შესახებ" | translate }}
+        </a>
       </li>
       <li>
-        <a  (click)="navigate('same', '/contact')">{{ "კონტაქტი" | translate }}</a>
+        <a [href]="getHref('/contact')">
+          {{ "კონტაქტი" | translate }}
+        </a>
       </li>
       <li>
-        <a  (click)="changeLanguage()">{{ eng() }}</a>
+        <a [href]="getLanguageHref()">
+          {{ eng() }}
+        </a>
       </li>
       <li id="burger-menu-icon">
-        <a>
+        <a [href]="'#'">
           <app-burger-menu></app-burger-menu>
         </a>
       </li>

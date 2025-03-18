@@ -18,12 +18,16 @@ export class BurgerMenuComponent {
     this.menuOpen.set(!this.menuOpen());
   }
 
-  navigate(lang: 'en' | 'ka' | 'same', navigateTo?: string): void {
+  getHref(navigateTo: string): string {
     const currentUrl = this.router.url;
-    const prefix = lang === 'same'
-      ? (currentUrl.startsWith('/en') ? 'en' : 'ka')
-      : lang;
-    const urlSegment = navigateTo ?? currentUrl.substring(3);
-    this.router.navigateByUrl(`/${prefix}${urlSegment}`)
+    const prefix = currentUrl.startsWith('/en') ? 'en' : 'ka';
+    return `/${prefix}${navigateTo}`;
+  }
+
+  getLanguageHref(): string {
+    const currentUrl = this.router.url;
+    const targetLang: 'en' | 'ka' = currentUrl.startsWith('/en') ? 'ka' : 'en';
+    const urlSegment = currentUrl.substring(3);
+    return `/${targetLang}${urlSegment}`;
   }
 }

@@ -11,13 +11,13 @@
     <nav class="menu-nav">
       <ul>
         <li>
-          <a  (click)="navigate('same', '/projects')">{{ "პროექტები" | translate  }}</a>
+          <a  [href]="getHref('/about-us')">{{ "პროექტები" | translate  }}</a>
         </li>
         <li>
-          <a   (click)="navigate('same', '/about-us')">{{ "ჩვენ შესახებ" | translate  }}</a>
+          <a    [href]="getHref('/about-us')">{{ "ჩვენ შესახებ" | translate  }}</a>
         </li>
         <li>
-          <a  (click)="navigate('same', '/contact')">{{ "კონტაქტი" | translate }}</a>
+          <a  [href]="getHref('/contact')">{{ "კონტაქტი" | translate }}</a>
         </li>
       </ul>
     </nav>

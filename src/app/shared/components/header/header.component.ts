@@ -21,7 +21,7 @@ export class HeaderComponent {
   eng = signal<string>(this.engChooser());
 
   headerBackground: string = 'transparent';
-  headerBorder = model<string>('1px solid transparent')
+  headerBorder = model<string>('1px solid transparent');
   headerVisible: boolean = true;
   private lastScrollTop: number = 0;
   private readonly scrollThreshold: number = 100;
@@ -34,8 +34,8 @@ export class HeaderComponent {
       : 'transparent';
     this.headerBorder.set(currentScroll > this.scrollThreshold
       ? '1px solid rgba(255, 255, 255, 0.1)'
-      : '1px solid transparent')
-    // Hide header if scrolling down past threshold; show otherwise.
+      : '1px solid transparent');
+
     this.headerVisible = !(currentScroll > this.lastScrollTop && currentScroll > this.scrollThreshold);
     this.lastScrollTop = Math.max(0, currentScroll);
   }
@@ -48,18 +48,16 @@ export class HeaderComponent {
     return this.isEng ? 'Geo' : 'Eng';
   }
 
-  changeLanguage(): void {
-    const targetLang: 'en' | 'ka' = this.isEng ? 'ka' : 'en';
-    this.navigate(targetLang);
+  getHref(navigateTo: string): string {
+    const currentUrl = this.router.url;
+    const prefix = currentUrl.startsWith('/en') ? 'en' : 'ka';
+    return `/${prefix}${navigateTo}`;
   }
 
-  navigate(lang: 'en' | 'ka' | 'same', navigateTo?: string): void {
+  getLanguageHref(): string {
     const currentUrl = this.router.url;
-    const prefix = lang === 'same'
-      ? (currentUrl.startsWith('/en') ? 'en' : 'ka')
-      : lang;
-    const urlSegment = navigateTo ?? currentUrl.substring(3);
-    this.router.navigateByUrl(`/${prefix}${urlSegment}`)
-      .then(() => this.eng.set(this.engChooser()));
+    const targetLang: 'en' | 'ka' = currentUrl.startsWith('/en') ? 'ka' : 'en';
+    const urlSegment = currentUrl.substring(3);
+    return `/${targetLang}${urlSegment}`;
   }
 }
