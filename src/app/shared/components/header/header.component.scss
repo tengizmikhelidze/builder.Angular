@@ -84,10 +84,6 @@ nav ul li {
 }
 
 @include responsive.respond-to(md) {
-  nav {
-    padding: 0 var(--page-padding--md);
-  }
-
   nav ul {
     @for $i from 2 through 5 {
       li:nth-child(#{$i}) {

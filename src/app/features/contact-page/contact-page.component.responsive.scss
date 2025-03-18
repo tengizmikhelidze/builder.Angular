@@ -2,7 +2,6 @@
 
 @include responsive.respond-to(md) {
   .speeddial-wrapper {
-    right: var(--page-padding--md);
     font-size: 0.7rem;
   }
 }
@@ -10,7 +9,6 @@
 
 @include responsive.respond-to(sm) {
   .speeddial-wrapper {
-    right: var(--page-padding--md);
     font-size: 0.6rem;
   }
 }
