@@ -29,6 +29,10 @@
       font-size: 3.5rem;
     }
   }
+
+  .speeddial-wrapper {
+    right: var(--page-padding--md);
+  }
 }
 
 @include responsive.respond-to(sm) {
