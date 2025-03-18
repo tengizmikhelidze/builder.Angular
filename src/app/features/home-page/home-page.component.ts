@@ -39,6 +39,6 @@ export class HomePageComponent {
     this.animate = false;
     setTimeout(() => {
       this.animate = true;
-    }, 0);
+    }, 50);
   }
 }
