@@ -12,7 +12,7 @@
       (onPage)="onPageChange()">
       <ng-template let-project #item>
         <div class="carousel--item">
-          <img [src]="project.coverImage" alt="Project Image">
+          <img [src]="project.coverImage" alt="Project Image" fetchpriority="high">
           <div class="overlay">
             <h2 class="project-name" [class.animate]="animate">{{ project.projectName }}</h2>
           </div>
