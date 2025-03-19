@@ -4,12 +4,12 @@ footer {
   background: var(--footer-background);
 
   display: grid;
-  grid-template-rows: 75px 1fr 60px;
+  grid-template-rows: auto auto auto;
   font-size: 0.9rem;
 }
 
 .section {
-  padding: 0 var(--page-padding);
+  padding: 20px var(--page-padding);
 
   &--socials {
     border-bottom: 1px solid rgba(255,255,255,.15);

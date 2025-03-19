@@ -10,7 +10,7 @@ import {Router} from '@angular/router';
     TranslatePipe
   ],
   templateUrl: './footer.component.html',
-  styleUrl: './footer.component.scss'
+  styleUrls: ['./footer.component.scss', 'footer.component.responsive.scss']
 })
 export class FooterComponent {
   private router = inject(Router);

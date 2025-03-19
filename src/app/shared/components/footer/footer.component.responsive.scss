@@ -1,0 +1,29 @@
+@use "breakpoints.mixins" as responsive;
+
+@include responsive.respond-to(sm) {
+
+  .section {
+
+    &--rights {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+    }
+
+  }
+}
+
+@include responsive.respond-to(md) {
+
+  .section {
+
+    &--info {
+      padding: var(--page-padding-xs) var(--page-padding);
+
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      grid-row-gap: 45px;
+    }
+
+  }
+}
