@@ -5,6 +5,7 @@ import {Button} from "primeng/button";
 import {SpeedDial} from "primeng/speeddial";
 import {NgClass, NgStyle} from '@angular/common';
 import {ContactPageSecondSectionComponent} from './contact-page-second-section/contact-page-second-section.component';
+import {FooterComponent} from '../../shared/components/footer/footer.component';
 
 @Component({
   selector: 'app-contact-page',
@@ -15,7 +16,8 @@ import {ContactPageSecondSectionComponent} from './contact-page-second-section/c
     SpeedDial,
     NgClass,
     NgStyle,
-    ContactPageSecondSectionComponent
+    ContactPageSecondSectionComponent,
+    FooterComponent
   ],
   templateUrl: './contact-page.component.html',
   styleUrls: ['./contact-page.component.scss', './contact-page.component.responsive.scss']

@@ -11,8 +11,12 @@ $theme-map: (
     --header-burger-icon-lines--opened: $header-burger-icon-lines--opened--dark,
     --header-burger-icon-lines--opened--hover: $header-burger-icon-lines--opened--hover--dark,
     --header-burger-icon-lines--closed: $header-burger-icon-lines--closed--dark,
+    --footer-background: $footer-background--dark,
+    --footer-socials-background: $footer-socials-background--dark,
+    --footer-rights-background: $footer-rights-background--dark,
     --color-text-initial: $color-text-initial--dark,
     --color-text-initial--20: $color-text-initial--20--dark,
+    --color-text-label: $color-text-label--dark,
     --color-text-secondary: $color-text-secondary--dark,
     --color-icon-initial: $color-icon-initial--dark
   ),
@@ -24,8 +28,12 @@ $theme-map: (
     --header-burger-icon-lines--opened: $header-burger-icon-lines--opened--light,
     --header-burger-icon-lines--opened--hover: $header-burger-icon-lines--opened--hover--light,
     --header-burger-icon-lines--closed: $header-burger-icon-lines--closed--light,
+    --footer-background: $footer-background--light,
+    --footer-socials-background: $footer-socials-background--light,
+    --footer-rights-background: $footer-rights-background--light,
     --color-text-initial: $color-text-initial--light,
     --color-text-initial--20: $color-text-initial--20--light,
+    --color-text-label: $color-text-label--light,
     --color-text-secondary: $color-text-secondary--light,
     --color-icon-initial: $color-icon-initial--light
   )

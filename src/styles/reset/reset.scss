@@ -47,6 +47,8 @@ body .p-speeddial {
 
 :root {
   --page-padding : 3.75rem;
+  --page-padding-s : 2.75rem;
+  --page-padding-xs : 1.75rem;
 }
 
 @include responsive.respond-to(md) {
